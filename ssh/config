@@ -1,0 +1,17 @@
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+Host umbrel.local
+    HostName umbrel.local
+    User umbrel
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+Host dietpi.local
+    HostName dietpi.local
+    User root
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
