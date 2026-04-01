@@ -6,14 +6,6 @@ signing_key = "3729D47D63C773E3"
 [goto]
 api_url = "http://dietpi.local:50002"
 
-[vscodium]
-trusted_roots = [
-  "/home/thomas/dev/wt/github.com/tsauvajon",
-  "/mnt/linux/dev/wt/github.com/tsauvajon",
-  "/home/thomas/dev/repos/github.com/tsauvajon",
-  "/mnt/linux/dev/repos/github.com/tsauvajon",
-]
-
 [dotfiles]
 skip_destinations = []
 skip_sources = ["home/cargo.darwin.toml"]

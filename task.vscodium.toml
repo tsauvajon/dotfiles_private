@@ -1,0 +1,7 @@
+[vscodium]
+trusted_roots = [
+  "/home/thomas/dev/wt/github.com/tsauvajon",
+  "/home/thomas/dev/repos/github.com/tsauvajon",
+  "/mnt/linux/dev/wt/github.com/tsauvajon",
+  "/mnt/linux/dev/repos/github.com/tsauvajon",
+]
