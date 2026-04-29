@@ -1,0 +1,6 @@
+{
+  "plugin": [
+    "/home/thomas/dev/detached/github.com/tsauvajon/opencode-anthropic-auth",
+    "/home/thomas/dev/detached/github.com/slkiser/opencode-quota"
+  ]
+}
