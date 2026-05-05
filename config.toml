@@ -5,7 +5,3 @@ signing_key = "3729D47D63C773E3"
 
 [goto]
 api_url = "http://dietpi.local:50002"
-
-[dotfiles]
-skip_destinations = []
-skip_sources = ["config/cargo/cargo.darwin.toml"]
