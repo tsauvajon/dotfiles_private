@@ -8,4 +8,4 @@ api_url = "http://dietpi.local:50002"
 
 [dotfiles]
 skip_destinations = []
-skip_sources = ["home/cargo.darwin.toml"]
+skip_sources = ["config/cargo/cargo.darwin.toml"]
