@@ -2,37 +2,35 @@
   description = "Private dotfiles overlay";
 
   outputs =
-    { self }:
+    { self, ... }:
     let
       root = ./.;
-      configFile = root + "/config.toml";
-      config =
-        if builtins.pathExists configFile then builtins.fromTOML (builtins.readFile configFile) else { };
-      gitConfig = config.git or { };
-      gotoConfig = config.goto or { };
       existingPath = path: if builtins.pathExists path then path else null;
     in
     {
       git = {
-        name = gitConfig.name or "";
-        email = gitConfig.email or "";
-        signingKey = gitConfig.signing_key or "";
+        name = "Thomas Sauvajon";
+        email = "thomas.sauvajon@proton.me";
+        signingKey = "3729D47D63C773E3";
         extraConfigInclude = existingPath (root + "/extra.gitconfig");
       };
 
       goto = {
-        apiUrl = gotoConfig.api_url or null;
+        apiUrl = "http://dietpi.local:50002";
         bookmarksFile = existingPath (root + "/goto/database.yml");
       };
 
       opencode = {
-        commandsDir = root + "/opencode/commands";
-        skillsDir = root + "/opencode/skills";
-        agentsDir = root + "/opencode/agents";
-        pluginsDir = root + "/opencode/plugins";
-        rulesDir = root + "/opencode/rules";
-        configFile = root + "/opencode/opencode.json";
-        packageFile = root + "/opencode/package.json";
+        commandsDir = existingPath (root + "/opencode/commands");
+        skillsDir = existingPath (root + "/opencode/skills");
+        agentsDir = existingPath (root + "/opencode/agents");
+        pluginsDir = existingPath (root + "/opencode/plugins");
+        rulesDir = existingPath (root + "/opencode/rules");
+        configFile = existingPath (root + "/opencode/opencode.json");
+        packageFile = existingPath (root + "/opencode/package.json");
+        imports = [ ];
       };
+
+      homeModules = [ ];
     };
 }
