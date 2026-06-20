@@ -18,9 +18,6 @@
 
       personal = {
         enable = true;
-        signal.enable = true;
-        syncthing.enable = true;
-        tailscale.enable = true;
       };
 
       opencode = {
