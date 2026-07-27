@@ -21,6 +21,7 @@
       };
 
       opencode = {
+        configFile = ./opencode/opencode.json;
         imports = [ ];
       };
     };

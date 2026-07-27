@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "bash": {
+      "efibootmgr *": "allow",
+      "findmnt *": "allow",
+      "ip address *": "allow",
+      "ip neigh *": "allow",
+      "ip route show *": "allow",
+      "iw *": "allow",
+      "iwctl *": "allow",
+      "lsblk *": "allow",
+      "mdir *": "allow",
+      "mokutil *": "allow",
+      "networkctl *": "allow",
+      "nmcli *": "allow",
+      "resolvectl *": "allow",
+      "rfkill *": "allow",
+      "sfdisk *": "allow",
+      "sleep *": "allow",
+      "ssh *": "allow",
+      "systemctl is-active *": "allow",
+      "systemctl --user *": "allow",
+      "wpa_cli *": "allow"
+    },
+    "external_directory": {
+      "/boot/*": "allow",
+      "/boot/grub/*": "allow",
+      "/efi/*": "allow",
+      "/efi/EFI/*": "allow",
+      "/etc/*": "allow",
+      "/mnt/linux/*": "allow",
+      "/nix/*": "allow",
+      "/proc/*": "allow",
+      "/sys/firmware/efi/efivars/*": "allow"
+    }
+  }
+}
