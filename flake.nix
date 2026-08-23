@@ -7,7 +7,7 @@
       git = {
         name = "Thomas Sauvajon";
         email = "thomas.sauvajon@proton.me";
-        signingKey = "3729D47D63C773E3";
+        signingKey = "~/.ssh/id_ed25519.pub";
         extraConfigInclude = ./extra.gitconfig;
       };
 
