@@ -12,7 +12,12 @@
       };
 
       goto = {
-        apiUrl = "http://dietpi.local:50002";
+        apiUrl = "https://go.svj.email";
+        # Create an Authentik application password for user thomas
+        # (Authentik UI), store it here with mode 0600, then uncomment.
+        # Until set, resolving links works but creating/replacing asks
+        # Authentik at the edge.
+        # apiKeyFile = /home/thomas/.secrets/goto-api-key;
         bookmarksFile = null;
       };
 
