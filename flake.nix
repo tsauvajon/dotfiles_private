@@ -41,6 +41,23 @@
           enable = true;
           bindAddress = "100.66.158.32:9628";
         };
+
+        # Decodes the Brother private maintenance OID (real toner/drum
+        # percentages, hidden from the standard MIB by the third-party
+        # cartridge) plus paper tray and LCD status line. Scraped by
+        # VictoriaMetrics on apps via tag:printer-exporter on TCP/9629.
+        "brother-maintenance-exporter" = {
+          enable = true;
+          bindAddress = "100.66.158.32:9629";
+        };
+
+        # OpenCode shared-server usage exporter (arch only: the shared
+        # opencode serve runs here on 127.0.0.1:4096). Scraped by
+        # VictoriaMetrics on apps via tag:printer-exporter on TCP/9630.
+        "opencode-exporter" = {
+          enable = true;
+          bindAddress = "100.66.158.32:9630";
+        };
       };
 
       opencode = {
