@@ -1,0 +1,108 @@
+---
+auths:
+  public_v1:
+    version: 1
+    community: public
+
+modules:
+  brother_dcp_l2620dw:
+    # SNMPv1 only: the Brother DCP-L2620DW firmware does not answer GetBulk,
+    # so any v2c walk times out. v1 walks use GetNext and work reliably.
+    walk:
+      - 1.3.6.1.2.1.1.1
+      - 1.3.6.1.2.1.1.3
+      - 1.3.6.1.2.1.1.5
+      - 1.3.6.1.2.1.2.2.1.10
+      - 1.3.6.1.2.1.2.2.1.16
+      - 1.3.6.1.2.1.25.3.2.1.5
+      - 1.3.6.1.2.1.25.3.5.1.1
+      - 1.3.6.1.2.1.43.10.2.1.4
+      - 1.3.6.1.2.1.43.11.1.1.6
+      - 1.3.6.1.2.1.43.11.1.1.8
+      - 1.3.6.1.2.1.43.11.1.1.9
+    max_repetitions: 3
+    retries: 2
+    metrics:
+      - name: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+        help: Description of the printer firmware - 1.3.6.1.2.1.1.1
+      - name: sysUpTimeInstance
+        oid: 1.3.6.1.2.1.1.3
+        type: gauge
+        help: >-
+          Time in hundredths of a second since the printer was last
+          re-initialized - 1.3.6.1.2.1.1.3
+      - name: sysName
+        oid: 1.3.6.1.2.1.1.5
+        type: DisplayString
+        help: Administratively-assigned printer name - 1.3.6.1.2.1.1.5
+      - name: ifInOctets
+        oid: 1.3.6.1.2.1.2.2.1.10
+        type: counter
+        help: Total bytes received on the interface - 1.3.6.1.2.1.2.2.1.10
+        indexes:
+          - labelname: ifIndex
+            type: gauge
+      - name: ifOutOctets
+        oid: 1.3.6.1.2.1.2.2.1.16
+        type: counter
+        help: Total bytes sent from the interface - 1.3.6.1.2.1.2.2.1.16
+        indexes:
+          - labelname: ifIndex
+            type: gauge
+      - name: hrDeviceStatus
+        oid: 1.3.6.1.2.1.25.3.2.1.5
+        type: gauge
+        help: >-
+          Device status unknown(1) running(2) warning(3) testing(4) down(5)
+          - 1.3.6.1.2.1.25.3.2.1.5
+        indexes:
+          - labelname: hrDeviceIndex
+            type: gauge
+      - name: hrPrinterStatus
+        oid: 1.3.6.1.2.1.25.3.5.1.1
+        type: gauge
+        help: >-
+          Printer status other(2) idle(3) printing(4) warmup(5)
+          - 1.3.6.1.2.1.25.3.5.1.1
+        indexes:
+          - labelname: hrDeviceIndex
+            type: gauge
+      - name: prtMarkerLifeCount
+        oid: 1.3.6.1.2.1.43.10.2.1.4
+        type: counter
+        help: Total pages printed by the marker - 1.3.6.1.2.1.43.10.2.1.4
+        indexes:
+          - labelname: prtMarkerIndex
+            type: gauge
+      - name: prtMarkerSuppliesDescription
+        oid: 1.3.6.1.2.1.43.11.1.1.6
+        type: DisplayString
+        help: Description of the supply unit - 1.3.6.1.2.1.43.11.1.1.6
+        indexes:
+          - labelname: prtMarkerIndex
+            type: gauge
+          - labelname: prtMarkerSuppliesIndex
+            type: gauge
+      - name: prtMarkerSuppliesMaxCapacity
+        oid: 1.3.6.1.2.1.43.11.1.1.8
+        type: gauge
+        help: Maximum capacity of the supply unit - 1.3.6.1.2.1.43.11.1.1.8
+        indexes:
+          - labelname: prtMarkerIndex
+            type: gauge
+          - labelname: prtMarkerSuppliesIndex
+            type: gauge
+      - name: prtMarkerSuppliesLevel
+        oid: 1.3.6.1.2.1.43.11.1.1.9
+        type: gauge
+        help: >-
+          Remaining level of the supply unit; negative values are
+          other(-1), unknown(-2), someRemaining(-3)
+          - 1.3.6.1.2.1.43.11.1.1.9
+        indexes:
+          - labelname: prtMarkerIndex
+            type: gauge
+          - labelname: prtMarkerSuppliesIndex
+            type: gauge
